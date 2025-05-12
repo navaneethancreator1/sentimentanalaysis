@@ -1,0 +1,72 @@
+This project is contributed by
+  Dhayanithi M 
+  Navaneethan S 
+  Gunasekaran V 
+  Parijathan J 
+
+
+# Social Media Sentiment and Basic Emotion Analyzer
+
+## Project Overview
+
+This Python script performs sentiment analysis on a collection of sample social media posts to determine if the expressed sentiment is positive, negative, or neutral. It also includes a basic, conceptual attempt to map these sentiments and keywords to common emotions like joy, sadness, anger, fear, and surprise. The primary tool used for sentiment analysis is NLTK's VADER (Valence Aware Dictionary and sEntiment Reasoner), which is specifically attuned to sentiments expressed in social media.
+
+## Features
+
+* **Sentiment Analysis**: Classifies text into positive, negative, or neutral categories using VADER.
+* **VADER Scores**: Provides detailed sentiment scores (positive, negative, neutral, compound).
+* **Basic Emotion Keyword Spotting**: A simplistic approach to identify potential emotions based on keywords within the text and the overall sentiment.
+* **Text Preprocessing (Optional)**: Includes a function for basic text cleaning (e.g., lowercasing, removing URLs).
+* **Sample Data**: Uses an internal list of sample social media posts for easy demonstration.
+
+## How It Works
+
+1.  **Data Input**: The script uses a predefined list of strings simulating social media posts.
+2.  **Text Preprocessing (Optional)**: Text can be optionally preprocessed to remove noise like URLs or convert to lowercase. However, VADER is designed to work well with raw social media text, including emoticons and slang.
+3.  **Sentiment Analysis with VADER**:
+    * Each post is analyzed using NLTK's `SentimentIntensityAnalyzer` (VADER).
+    * VADER returns polarity scores: negative, neutral, positive, and a compound score.
+    * The `compound` score (ranging from -1 to +1) is used to classify the overall sentiment of the post.
+4.  **Basic Emotion Interpretation**:
+    * Based on the classified sentiment and the presence of specific keywords (e.g., "happy", "sad", "angry"), the script makes a rudimentary guess at the underlying emotion.
+    * This part is **conceptual and highly simplified** and does not use advanced emotion lexicons or machine learning models for emotion detection.
+
+## Requirements
+
+* Python 3.x
+* NLTK (Natural Language Toolkit)
+
+## Installation
+
+1.  **Clone the repository (if applicable) or download the `emotion_analyzer.py` script.**
+
+2.  **Install NLTK**:
+    If you don't have NLTK installed, open your terminal or command prompt and run:
+    ```bash
+    pip install nltk
+    ```
+
+3.  **Download NLTK Resources**:
+    The script requires specific NLTK resources. Run the Python script once, or execute the following in a Python interpreter to download them:
+    ```python
+    import nltk
+
+    nltk.download('vader_lexicon') # For VADER sentiment analysis
+    nltk.download('punkt')         # For tokenization (used in optional preprocessing)
+    nltk.download('stopwords')     # For stopwords (used in optional preprocessing)
+    ```
+    The script includes `try-except` blocks to prompt these downloads if the resources are not found.
+
+## Usage
+
+1.  Ensure you have Python and NLTK installed and the necessary NLTK resources downloaded (see Installation).
+2.  Save the script as `emotion_analyzer.py` (or your preferred name).
+3.  Run the script from your terminal:
+    ```bash
+    python emotion_analyzer.py
+    ```
+
+**Output:**
+The script will print the original post, its VADER sentiment scores, the classified overall sentiment (Positive, Negative, Neutral), and a potential basic emotion detected.
+
+Example Output for a single post:
